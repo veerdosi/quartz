@@ -1,0 +1,74 @@
+# Market Data Configuration (IEX Cloud)
+market:
+  provider: "iex"
+  base_url: "https://cloud.iexapis.com/stable"
+  websocket_url: "wss://ws-cloud.iexapis.com/stable"
+  api_key: "YOUR_IEX_API_KEY"  # Replace with your IEX Cloud API key
+  symbols:
+    - "AAPL"
+    - "GOOGL"
+    - "MSFT"
+    - "AMZN"
+    - "NVDA"
+  update_interval: 1  # seconds
+
+# Trading Configuration (Interactive Brokers TWS)
+trading:
+  provider: "ibkr"
+  host: "gateway.interactivebrokers.com"  # IBKR Gateway
+  port: "4001"  # Default TWS/Gateway port
+  client_id: 12345  # Your IBKR client ID
+  paper_trading: true  # Set to false for live trading
+  account_id: "YOUR_IBKR_ACCOUNT"  # Your IBKR account number
+
+# Alternative Market Data Sources
+alternative_data:
+  alpha_vantage:
+    base_url: "https://www.alphavantage.co/query"
+    api_key: "YOUR_ALPHA_VANTAGE_KEY"  # Backup data source
+  
+  polygon:
+    base_url: "https://api.polygon.io"
+    api_key: "YOUR_POLYGON_KEY"  # Another backup option
+
+# Optimization Parameters
+optimization:
+  risk_aversion: 0.5           
+  initial_temperature: 1.0      
+  num_iterations: 1000         
+  learning_rate: 0.01          
+  rebalance_interval: 300      
+
+# Portfolio Constraints
+constraints:
+  min_position: 0.05           
+  max_position: 0.30           
+  min_trade_size: 0.01        
+  max_daily_turnover: 1.00    
+
+# Risk Management
+risk:
+  var_confidence: 0.95         
+  max_drawdown: 0.15          
+  max_leverage: 1.0           
+  stop_loss: 0.02            
+
+# Performance Monitoring
+monitoring:
+  log_level: "INFO"           
+  metrics_interval: 60        
+  save_state: true           
+  state_interval: 3600       
+  log_file: "quantumfin.log"
+  error_reporting:
+    email: "alerts@yourdomain.com"
+    slack_webhook: "YOUR_SLACK_WEBHOOK_URL"
+
+# Database Configuration (Optional)
+database:
+  type: "postgresql"
+  host: "your-db-host.com"
+  port: 5432
+  name: "quantumfin"
+  user: "quantum_user"
+  password: "YOUR_DB_PASSWORD"
